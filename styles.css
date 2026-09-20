@@ -45,13 +45,12 @@
   }
   .nav-cta:hover { background: var(--ink); color: var(--paper); }
 
-  /* ---------- Hero ---------- */
-  .hero { padding: 96px 0 72px; }
-  .hero h1 { font-size: 44px; max-width: 15ch; letter-spacing: -0.01em; }
-  .hero .lede {
-    margin-top: 26px; max-width: 62ch; font-size: 17px; color: var(--slate);
-  }
-  .hero .cta-row { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
+  /* ---------- Hero (two-column: copy + identity panel) ---------- */
+  .hero { padding: 88px 0 72px; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+  .hero-copy h1 { font-size: 44px; max-width: 18ch; letter-spacing: -0.01em; }
+  .hero-copy .lede { margin-top: 26px; max-width: 56ch; font-size: 17px; color: var(--slate); }
+  .hero-copy .cta-row { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
   .btn-primary, .btn-secondary {
     font-size: 14.5px; padding: 13px 24px; border-radius: 3px; display: inline-block;
   }
@@ -61,11 +60,24 @@
   .btn-secondary:hover { border-color: var(--ink); }
 
   .stat-row {
-    margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line);
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
   }
-  .stat-row div { font-size: 14px; color: var(--slate); }
-  .stat-row strong { display: block; font-family: var(--serif); font-size: 26px; color: var(--ink); font-weight: 500; }
+  .stat-row div { font-size: 13.5px; color: var(--slate); }
+  .stat-row strong { display: block; font-family: var(--serif); font-size: 24px; color: var(--ink); font-weight: 500; }
+
+  .hero-panel {
+    position: relative; overflow: hidden; background: var(--ink); border-radius: 6px;
+    padding: 40px 32px; min-height: 400px; display: flex; align-items: center;
+  }
+  .hero-panel-motif { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-panel-content { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 26px; width: 100%; }
+  .psp-item { display: flex; align-items: baseline; gap: 18px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.16); }
+  .psp-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .psp-letter { font-family: var(--serif); font-size: 38px; color: var(--accent-bright); line-height: 1; flex: 0 0 auto; }
+  .psp-item > div { display: flex; flex-direction: column; gap: 5px; }
+  .psp-word { font-family: var(--sans); font-size: 15.5px; font-weight: 500; color: #FFFFFF; letter-spacing: 0.01em; }
+  .psp-sub { font-family: var(--sans); font-size: 12.5px; color: rgba(255,255,255,0.62); }
 
   /* ---------- Clients (auto-scrolling, always colour) ---------- */
   section.clients { padding: 52px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
@@ -156,7 +168,9 @@
 
   @media (max-width: 860px) {
     nav.links { display: none; }
-    .hero h1 { font-size: 32px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .hero-copy h1 { font-size: 32px; }
+    .hero-panel { min-height: 0; padding: 28px 24px; }
     .stat-row, .pillar-grid, .insight-grid, .contact-grid { grid-template-columns: 1fr; }
     .team-card { grid-template-columns: 1fr; }
     .ledger-row { grid-template-columns: 1fr; gap: 6px; }
@@ -186,14 +200,6 @@
   @media (max-width: 860px) {
     .article-grid { grid-template-columns: 1fr; }
   }
-
-  /* ---------- Hero watermark (echoes the deck's diagonal brand mark) ---------- */
-  .hero { position: relative; overflow: hidden; }
-  .hero-watermark {
-    position: absolute; top: -30px; right: -30px; width: 340px; height: 340px;
-    opacity: 0.16; pointer-events: none; user-select: none;
-  }
-  @media (max-width: 860px) { .hero-watermark { display: none; } }
 
   /* ---------- Services: icon + chips ---------- */
   .ledger-row { display: flex; align-items: flex-start; gap: 22px; padding: 28px 0; border-bottom: 1px solid var(--line); }
