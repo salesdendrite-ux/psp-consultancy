@@ -1,0 +1,39 @@
+# PSP Consultancy — robots.txt
+# Explicitly allows both search-engine and AI-assistant crawlers.
+# Update the Sitemap line once the real domain is live.
+
+User-agent: *
+Allow: /
+
+# Search engines' AI-answer crawlers
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://www.pspconsultancy.in/sitemap.xml
