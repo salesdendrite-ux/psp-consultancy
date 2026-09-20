@@ -1,11 +1,12 @@
   :root {
-    --ink: #16213A;
-    --slate: #5A6270;
+    --ink: #10476E;
+    --slate: #5B7690;
     --paper: #FFFFFF;
-    --stone: #F3F1EC;
-    --line: #E1DFD6;
-    --accent: #2F5D50;
-    --accent-soft: #E8EFEC;
+    --stone: #F1F6FA;
+    --line: #DCE6EE;
+    --accent: #1B75BC;
+    --accent-bright: #00AEEF;
+    --accent-soft: #E5F1FA;
     --serif: 'Source Serif 4', Georgia, serif;
     --sans: 'IBM Plex Sans', -apple-system, Segoe UI, Roboto, sans-serif;
     --max: 1120px;
@@ -67,15 +68,15 @@
   .stat-row strong { display: block; font-family: var(--serif); font-size: 26px; color: var(--ink); font-weight: 500; }
 
   /* ---------- Clients (auto-scrolling, always colour) ---------- */
-  section.clients { padding: 48px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
-  .clients-head { font-family: var(--sans); font-size: 13px; letter-spacing: 0.02em; color: var(--slate); margin-bottom: 26px; }
+  section.clients { padding: 52px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .clients-head { font-family: var(--sans); font-size: 13px; letter-spacing: 0.02em; color: var(--slate); margin-bottom: 28px; }
   .client-marquee { width: 100%; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-  .client-track { display: flex; align-items: center; gap: 56px; width: max-content; animation: client-scroll 26s linear infinite; }
+  .client-track { display: flex; align-items: center; gap: 64px; width: max-content; animation: client-scroll 40s linear infinite; will-change: transform; }
   .client-track:hover { animation-play-state: paused; }
-  .client-track img { height: 48px; width: auto; max-width: 150px; object-fit: contain; flex: 0 0 auto; }
+  .client-track img { height: 76px; width: auto; max-width: 220px; object-fit: contain; flex: 0 0 auto; }
   @keyframes client-scroll {
     from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    to { transform: translateX(-33.3333%); }
   }
   @media (prefers-reduced-motion: reduce) {
     .client-track { animation: none; }
@@ -159,8 +160,8 @@
     .stat-row, .pillar-grid, .insight-grid, .contact-grid { grid-template-columns: 1fr; }
     .team-card { grid-template-columns: 1fr; }
     .ledger-row { grid-template-columns: 1fr; gap: 6px; }
-    .client-track { gap: 36px; animation-duration: 18s; }
-    .client-track img { height: 34px; }
+    .client-track { gap: 40px; animation-duration: 26s; }
+    .client-track img { height: 48px; }
   }
 
   /* ---------- Insights page (dedicated) ---------- */
@@ -186,11 +187,11 @@
     .article-grid { grid-template-columns: 1fr; }
   }
 
-  /* ---------- Hero watermark ---------- */
+  /* ---------- Hero watermark (echoes the deck's diagonal brand mark) ---------- */
   .hero { position: relative; overflow: hidden; }
   .hero-watermark {
-    position: absolute; top: -40px; right: -40px; font-family: var(--serif); font-size: 320px;
-    color: var(--accent); opacity: 0.045; line-height: 1; pointer-events: none; user-select: none;
+    position: absolute; top: -30px; right: -30px; width: 340px; height: 340px;
+    opacity: 0.16; pointer-events: none; user-select: none;
   }
   @media (max-width: 860px) { .hero-watermark { display: none; } }
 
@@ -226,7 +227,7 @@
   .process-head h2 { font-size: 30px; }
   .process-head p { color: var(--slate); margin-top: 14px; max-width: 56ch; font-size: 15.5px; }
   .process-grid { margin-top: 44px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-  .process-step .step-num { font-family: var(--serif); font-size: 30px; color: var(--accent); }
+  .process-step .step-num { font-family: var(--serif); font-size: 30px; color: var(--accent-bright); }
   .process-step h3 { font-size: 16px; margin-top: 10px; }
   .process-step p { margin-top: 8px; font-size: 13.5px; color: var(--slate); }
 
@@ -242,10 +243,11 @@
   .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; color: var(--slate); }
   .dropdown-menu {
     display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-    background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 8px; margin-top: 16px;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 8px; margin-top: 0;
     min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 30;
   }
-  .nav-dropdown:hover .dropdown-menu { display: block; }
+  .nav-dropdown:hover .dropdown-menu,
+  .nav-dropdown:focus-within .dropdown-menu { display: block; }
   .dropdown-menu a { display: block; padding: 8px 12px; font-size: 13.5px; color: var(--ink); border-radius: 3px; }
   .dropdown-menu a:hover { background: var(--stone); }
 
