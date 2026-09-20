@@ -36,4 +36,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://www.pspconsultancy.in/sitemap.xml
+Sitemap: https://www.pspconsultancy.com/sitemap.xml
