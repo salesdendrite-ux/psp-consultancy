@@ -1,28 +1,38 @@
 # PSP Consultancy
 
-> Business and financial advisory practice headquartered in Ahmedabad, India, with affiliated offices in Mumbai, Delhi, Jaipur and Indore.
+> Business & Financial Advisory in Ahmedabad, India. Income tax, GST, FEMA, RERA, Virtual CFO, outsourcing and India business entry. PSP Consultancy is separate from PSP & Associates, the affiliate Chartered Accountancy firm (ICAI-registered) that signs audit and certification reports.
 
-## About
-
-PSP Consultancy advises founders, developers, NRIs and growing businesses on Income Tax, GST, FEMA and RERA matters, Virtual CFO services, outsourcing, and India market entry. PSP Consultancy is a separate entity from PSP & Associates, an affiliate Chartered Accountancy firm registered with the Institute of Chartered Accountants of India (ICAI). Audit and statutory certification work is carried out by PSP & Associates, not by PSP Consultancy.
+## Key facts
+- Headquarters: Ahmedabad, Gujarat, India. Affiliated offices: Mumbai, Delhi, Jaipur, Indore.
+- Contact: +91 81288 94039, caparagpanjwani@gmail.com, WhatsApp https://wa.me/918128894039
+- Audit, tax audit and CA certificates are issued by PSP & Associates, not by PSP Consultancy.
 
 ## Services
+- [Income Tax](https://www.pspconsultancy.com/services/income-tax/): Returns, planning, advance tax, TDS and notices for individuals, businesses and NRIs.
+- [GST](https://www.pspconsultancy.com/services/gst/): Registration, return filing, input tax credit, refunds and notice support.
+- [RERA Advisory](https://www.pspconsultancy.com/services/rera-advisory/): Project registration, periodic updates, escrow compliance and RERA audits for developers and agents.
+- [FEMA Advisory](https://www.pspconsultancy.com/services/fema-advisory/): FDI and ODI reporting, ECB, export-import compliance, NRI matters and compounding.
+- [Audit & Assurance](https://www.pspconsultancy.com/services/audit-assurance/): Statutory, tax, internal, RERA and forensic audits, delivered by our affiliate CA firm.
+- [Virtual CFO](https://www.pspconsultancy.com/services/virtual-cfo/): MIS, budgeting, forecasting, cash flow and investor reporting without a full-time CFO.
+- [Outsourcing](https://www.pspconsultancy.com/services/outsourcing/): Bookkeeping, payables and receivables, payroll and MIS handled end to end.
+- [India Business Entry](https://www.pspconsultancy.com/services/india-business-entry/): Entity choice, incorporation, registrations, FDI reporting and first-year compliance.
 
-- Income Tax advisory and representation before tax authorities
-- GST registration, compliance and input tax credit review
-- RERA advisory for real estate developers and investors
-- FEMA and cross-border advisory, including FDI/ODI structuring
-- Virtual CFO — financial review, budgeting, forecasting, investor reporting
-- Outsourcing — bookkeeping, payroll, MIS reporting
-- India business entry — entity setup, structuring, regulatory approvals
+## Insights (articles)
+- [UPI MDR 2026: 0.4% Charge from 15 October Explained](https://www.pspconsultancy.com/insights/upi-mdr-2026-15-october/): From 15 October 2026, UPI merchants pay a 0.4% MDR on payments above ₹2,000, capped at ₹300. See rates, exemptions, GST and what to do.
+- [EPF Wage Ceiling ₹25,000 (2026): Employer Checklist](https://www.pspconsultancy.com/insights/epf-wage-ceiling-25000-2026/): The EPF wage ceiling rose to ₹25,000 from 17 September 2026. See what changes for payroll, who is covered and what to do before the 15 October return.
+- [FEMA Export-Import Regulations 2026: What Changed](https://www.pspconsultancy.com/insights/fema-export-import-regulations-2026/): RBI's unified FEMA export-import regulations took effect on 1 October 2026. See the 9-month realisation rule, EDF changes and a compliance checklist.
 
-## Contact
+## Calculators
+- [GST Calculator](https://www.pspconsultancy.com/calculators/gst-calculator/): Add or remove GST and see the CGST, SGST or IGST split.
+- [EPF Contribution Calculator](https://www.pspconsultancy.com/calculators/epf-contribution-calculator/): Employee and employer PF cost at the new ₹25,000 ceiling.
+- [UPI MDR Calculator](https://www.pspconsultancy.com/calculators/upi-mdr-calculator/): MDR, GST and net settlement for a UPI payment from 15 October 2026.
+- [Export Realisation Date Calculator](https://www.pspconsultancy.com/calculators/export-realisation-date-calculator/): Deadline to realise export proceeds and the EDF date for service exports.
 
-- Phone: +91 8128894039
-- Email: caparagpanjwani@gmail.com
-- Headquarters: Ahmedabad, Gujarat, India
-- Affiliated offices: Mumbai, Delhi, Jaipur, Indore
+## Company
+- [About](https://www.pspconsultancy.com/about/)
+- [Contact](https://www.pspconsultancy.com/contact/)
+- [Privacy policy](https://www.pspconsultancy.com/privacy-policy/)
+- [Disclaimer](https://www.pspconsultancy.com/disclaimer/)
 
-## Notes
-
-Content on this site is general information, not professional advice for any specific situation. An Insights section (/insights.html) carries articles on Income Tax, GST, FEMA, RERA, Virtual CFO and India business entry topics, updated as new pieces are published.
+## Optional
+- [Full text of key pages](https://www.pspconsultancy.com/llms-full.txt)
