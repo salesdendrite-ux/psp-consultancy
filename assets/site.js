@@ -28,19 +28,19 @@
   if (rot) {
     var items = Array.prototype.slice.call(rot.querySelectorAll('.svc-list li'));
     var panels = Array.prototype.slice.call(rot.querySelectorAll('.svc-panel'));
-    var bars = Array.prototype.slice.call(rot.querySelectorAll('.svc-bar-fill'));
     var idx = 0, timer = null, paused = false;
     function setPaused(v) {
       paused = v;
-      bars.forEach(function (b) { b.classList.toggle('paused', v); });
+      items.forEach(function (el) { el.classList.toggle('paused', v); });
     }
     function restartBar() {
-      // aria-selected has just moved to the new item; force every bar-fill to
-      // drop its animation and reflow, so only the now-selected item's bar
-      // (matched by the [aria-selected="true"] CSS rule) restarts from 0%.
-      bars.forEach(function (b) { b.style.animation = 'none'; b.style.width = '0%'; });
+      // The progress fill is the active item's own bottom border (no separate
+      // bar element). Drop 'run' from every item and reflow, then add it back
+      // only to the now-active one, so its border-line fill restarts from 0%.
+      items.forEach(function (el) { el.classList.remove('run'); });
       void rot.offsetWidth;
-      bars.forEach(function (b) { b.style.animation = ''; b.style.width = ''; b.classList.toggle('paused', paused); });
+      items[idx].classList.add('run');
+      items.forEach(function (el) { el.classList.toggle('paused', paused); });
     }
     function show(i) {
       idx = i;
@@ -62,6 +62,7 @@
     rot.addEventListener('mouseleave', function () { setPaused(false); });
     document.addEventListener('click', function (e) { if (!rot.contains(e.target)) setPaused(false); });
     window.addEventListener('scroll', function () { setPaused(false); }, { passive: true });
+    restartBar(); // start the first item's border-line fill immediately, not just on first auto-advance
     start();
   }
 
@@ -104,19 +105,27 @@
     window.addEventListener('resize', iReset);
   }
 
-  // How we work: auto-cycle the active step 01 -> 04, with an arrow below
-  // the cards that slides across to sit under whichever step is active.
+  // How we work: auto-cycle the active step 01 -> 04. Below the cards, a
+  // 4-segment progress bar (one segment per step, story-style) fills the
+  // current step's segment over its dwell time and marks earlier ones done.
   var steps = document.getElementById('step-rotator');
   if (steps) {
     var sEls = Array.prototype.slice.call(steps.querySelectorAll(':scope > div[data-i]'));
-    var arrow = document.getElementById('step-arrow');
+    var segs = Array.prototype.slice.call(document.querySelectorAll('#step-progress .step-seg'));
     var sIdx = 0;
-    function moveArrow() { if (arrow) arrow.style.left = (sIdx * 100 / sEls.length) + '%'; }
-    moveArrow();
+    function updateSegs() {
+      segs.forEach(function (seg) { seg.classList.remove('run'); });
+      void (segs[0] && segs[0].offsetWidth);
+      segs.forEach(function (seg, i) {
+        seg.classList.toggle('done', i < sIdx);
+        if (i === sIdx) seg.classList.add('run');
+      });
+    }
+    updateSegs();
     setInterval(function () {
       sIdx = (sIdx + 1) % sEls.length;
       sEls.forEach(function (el, i) { el.classList.toggle('active', i === sIdx); });
-      moveArrow();
+      updateSegs();
     }, 2800);
   }
 })();
