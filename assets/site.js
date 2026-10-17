@@ -28,18 +28,19 @@
   if (rot) {
     var items = Array.prototype.slice.call(rot.querySelectorAll('.svc-list li'));
     var panels = Array.prototype.slice.call(rot.querySelectorAll('.svc-panel'));
-    var bar = document.getElementById('svc-progress-bar');
+    var bars = Array.prototype.slice.call(rot.querySelectorAll('.svc-bar-fill'));
     var idx = 0, timer = null, paused = false;
     function setPaused(v) {
       paused = v;
-      if (bar) bar.classList.toggle('paused', v);
+      bars.forEach(function (b) { b.classList.toggle('paused', v); });
     }
     function restartBar() {
-      if (!bar) return;
-      bar.style.animation = 'none';
-      void bar.offsetWidth;
-      bar.style.animation = '';
-      bar.classList.toggle('paused', paused);
+      // aria-selected has just moved to the new item; force every bar-fill to
+      // drop its animation and reflow, so only the now-selected item's bar
+      // (matched by the [aria-selected="true"] CSS rule) restarts from 0%.
+      bars.forEach(function (b) { b.style.animation = 'none'; b.style.width = '0%'; });
+      void rot.offsetWidth;
+      bars.forEach(function (b) { b.style.animation = ''; b.style.width = ''; b.classList.toggle('paused', paused); });
     }
     function show(i) {
       idx = i;
@@ -103,14 +104,19 @@
     window.addEventListener('resize', iReset);
   }
 
-  // How we work: auto-cycle the active step 01 -> 04
+  // How we work: auto-cycle the active step 01 -> 04, with an arrow below
+  // the cards that slides across to sit under whichever step is active.
   var steps = document.getElementById('step-rotator');
   if (steps) {
-    var sEls = Array.prototype.slice.call(steps.children);
+    var sEls = Array.prototype.slice.call(steps.querySelectorAll(':scope > div[data-i]'));
+    var arrow = document.getElementById('step-arrow');
     var sIdx = 0;
+    function moveArrow() { if (arrow) arrow.style.left = (sIdx * 100 / sEls.length) + '%'; }
+    moveArrow();
     setInterval(function () {
       sIdx = (sIdx + 1) % sEls.length;
       sEls.forEach(function (el, i) { el.classList.toggle('active', i === sIdx); });
+      moveArrow();
     }, 2800);
   }
 })();

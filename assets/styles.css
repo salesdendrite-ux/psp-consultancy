@@ -140,22 +140,29 @@ a.card:hover{border-color:var(--gold);text-decoration:none;transform:translateY(
 .step-rotator>div .step-num{transition:color .35s ease}
 .step-rotator>div.active{opacity:1}
 .step-rotator>div.active .step-num{color:var(--egg)}
+.step-track{position:relative;height:30px;margin-top:6px}
+.step-track .step-line{position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(244,240,230,.18)}
+.step-arrow{position:absolute;top:0;left:0;width:25%;display:flex;justify-content:center;color:var(--egg);transition:left .4s ease}
+.step-arrow svg{width:20px;height:20px}
+@media (prefers-reduced-motion:reduce){.step-arrow{transition:none}}
 
 /* ---------- Services rotator ---------- */
 .svc-rotator{display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:start}
-.svc-progress{grid-column:1/-1;height:3px;border-radius:2px;background:var(--line);overflow:hidden;margin-bottom:6px}
-.svc-progress-bar{height:100%;width:0%;background:var(--gold);animation:svc-fill 6s linear forwards}
-.svc-progress-bar.paused{animation-play-state:paused}
 @keyframes svc-fill{from{width:0%}to{width:100%}}
-@media (prefers-reduced-motion:reduce){.svc-progress-bar{animation:none;width:100%}}
 .svc-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.svc-list li{display:flex;align-items:center;gap:14px;padding:16px 20px;cursor:pointer;border-bottom:1px solid var(--line);transition:background-color .2s ease}
+.svc-list li{display:flex;flex-direction:column;gap:10px;padding:16px 20px;cursor:pointer;border-bottom:1px solid var(--line);transition:background-color .2s ease}
 .svc-list li:last-child{border-bottom:none}
+.svc-list li .svc-row{display:flex;align-items:center;gap:14px}
 .svc-list li .svc-name{font:600 15.5px var(--serif);color:var(--navy)}
 .svc-list li[aria-selected="true"]{background:var(--gold-soft)}
 .svc-list li:hover{background:var(--gold-soft)}
 .svc-list li .icon{width:38px;height:38px;flex:0 0 38px}
 .svc-list li .icon svg{width:19px;height:19px}
+.svc-bar{height:3px;border-radius:2px;background:var(--line);overflow:hidden}
+.svc-bar-fill{display:block;height:100%;width:0%;background:var(--gold)}
+.svc-list li[aria-selected="true"] .svc-bar-fill{animation:svc-fill 6s linear forwards}
+.svc-list li[aria-selected="true"] .svc-bar-fill.paused{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.svc-list li[aria-selected="true"] .svc-bar-fill{animation:none;width:100%}}
 .svc-detail{position:relative;min-height:220px}
 .svc-panel{display:none;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px;color:var(--ink);text-decoration:none}
 .svc-panel.active{display:flex}
@@ -165,7 +172,7 @@ a.card:hover{border-color:var(--gold);text-decoration:none;transform:translateY(
 @media (max-width:860px){
   .svc-rotator{grid-template-columns:1fr;gap:20px}
   .svc-list{flex-direction:row;overflow-x:auto}
-  .svc-list li{flex:0 0 auto;border-bottom:none;border-right:1px solid var(--line)}
+  .svc-list li{flex:0 0 auto;min-width:160px;border-bottom:none;border-right:1px solid var(--line)}
 }
 
 /* ---------- Inner page hero ---------- */
