@@ -1,6 +1,6 @@
 # PSP Consultancy: full reference
 
-Last updated 2026-10-06. Business & Financial Advisory. Ahmedabad, India. Source: https://www.pspconsultancy.com/
+Last updated 2026-10-17. Business & Financial Advisory. Ahmedabad, India. Source: https://www.pspconsultancy.com/
 
 ## Income Tax Advisory and Return Filing
 URL: https://www.pspconsultancy.com/services/income-tax/
@@ -293,6 +293,33 @@ A: The allotment of shares to the foreign investor is reported through RBI's por
 
 Q: Can an NRI or foreign national start a company in India?
 A: Yes, subject to the sector rules and the FDI policy. Foreign nationals can be directors or shareholders, and we help with documents, the resident director requirement and registrations.
+
+## GST Council 57th Meeting: Key Recommendations Explained
+URL: https://www.pspconsultancy.com/insights/gst-council-57th-meeting-recommendations/ (published 2026-10-08)
+
+The 57th Goods and Services Tax (GST) Council meeting, held on 8 October 2026, recommended omitting arrest powers under section 69, raising the prosecution threshold from ₹1 crore to ₹5 crore, cutting the maximum general penalty from ₹25,000 to ₹10,000 and automating more registration, return and refund steps. These are recommendations only and are not law until notified.
+
+FAQ:
+Q: Are the GST Council's recommendations law?
+A: No. They take effect only when given effect through notifications, circulars or amendments to the law, which alone carry legal force.
+
+Q: Did the 57th meeting change GST rates?
+A: Not broadly. The official release says the 56th meeting focused on rate rationalisation, while the 57th focused on process reforms, clarifications and trade facilitation, with a few rate and exemption changes.
+
+Q: Will arrest powers under GST be removed?
+A: The Council recommended omitting section 69 of the CGST Act, which gives arrest powers. This needs a law amendment.
+
+Q: What is the recommended prosecution threshold?
+A: The Council recommended raising it from ₹1 crore to ₹5 crore.
+
+Q: What is the recommended maximum general penalty?
+A: The maximum general penalty under section 125 would fall from ₹25,000 to ₹10,000.
+
+Q: Is there late-fee relief for small taxpayers?
+A: Yes. Late fee on delayed section 39(1) returns would be waived for taxpayers with turnover up to ₹5 crore in the preceding financial year, if the return is filed by the end of the month in which it was due.
+
+Q: When will the refund changes apply?
+A: Refund of credit on input services (inverted duty) applies to credit availed from 1 November 2026, and on capital goods from 1 April 2027. The other refund automation follows notification.
 
 ## UPI MDR 2026: 0.4% Charge from 15 October Explained
 URL: https://www.pspconsultancy.com/insights/upi-mdr-2026-15-october/ (published 2026-10-06)
