@@ -32,7 +32,7 @@ Q: Should I choose the old or the new tax regime?
 A: The new regime is the default for individuals and HUFs and the old regime applies only if you opt for it. The better choice depends on your deductions and exemptions, so we compute both before filing.
 
 Q: What should I do if I receive an income tax notice?
-A: Do not ignore it. Note the section, the date and the response deadline, and send us the notice with supporting documents. We review it, prepare the reply and track it to closure.
+A: Do not ignore it. Note the section quoted, the date of the notice and the response deadline, and gather the documents it refers to. Missing the deadline can mean a best-judgment assessment or a penalty, so an early, documented response matters more than a perfect one.
 
 Q: Can NRIs file their Indian returns through you from abroad?
 A: Yes. Documents are shared digitally, and we handle residential status, treaty relief and disclosures. If a matter needs a Chartered Accountant's certificate, PSP & Associates issues it.
@@ -71,7 +71,7 @@ Q: What is input tax credit and how do I avoid losing it?
 A: Input tax credit lets you set off GST paid on business purchases against GST payable on sales. To claim it you need a valid tax invoice, receipt of the goods or services, the tax paid by your supplier and the return filed, within the time limit. Regular reconciliation with GSTR-2B is the best protection.
 
 Q: What happens if I miss a GST return?
-A: A late fee and interest on unpaid tax apply, and continued non-filing can lead to cancellation of registration and restrictions on e-way bills. File as soon as possible and speak to us about the cleanest way to regularise.
+A: A late fee and interest on unpaid tax apply, and continued non-filing can lead to cancellation of registration and restrictions on generating e-way bills. Filing the pending returns, even late, stops the position from getting worse.
 
 Q: What are the current GST rates?
 A: Since 22 September 2025 most goods and services fall under 5% or 18%, with 40% on specified goods and 0% or special rates for certain items. We confirm the rate and classification for your product or service before you invoice.
