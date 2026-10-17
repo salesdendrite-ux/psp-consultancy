@@ -123,14 +123,13 @@ a.card:hover{border-color:var(--gold);text-decoration:none;transform:translateY(
 .insight-box h3{font-size:17px;line-height:1.32;margin:0;color:var(--navy);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .insight-grid{row-gap:28px}
 
-/* ---------- Insight marquee (home page, auto-rotating) ---------- */
-.insight-marquee{overflow:hidden;padding:4px 0 8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
-.insight-track{display:flex;gap:28px;width:max-content;animation:insight-scroll 60s linear infinite}
-.insight-track:hover{animation-play-state:paused}
-.insight-track .insight-card{flex:0 0 340px;width:340px}
-@keyframes insight-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.insight-track{animation:none}}
-@media (max-width:860px){.insight-track{gap:20px;animation-duration:42s}.insight-track .insight-card{flex-basis:260px;width:260px}}
+/* ---------- Insight carousel (home page, auto-advancing, 4 full cards at a time) ---------- */
+.insight-carousel{overflow:hidden;padding:4px 28px 8px}
+.insight-carousel .insight-track{display:flex;gap:26px;transition:transform .6s cubic-bezier(.4,0,.2,1);will-change:transform}
+.insight-carousel .insight-card{flex:0 0 calc((100% - 78px)/4);width:calc((100% - 78px)/4)}
+@media (max-width:1020px){.insight-carousel .insight-card{flex-basis:calc((100% - 26px)/2);width:calc((100% - 26px)/2)}}
+@media (max-width:600px){.insight-carousel{padding:4px 18px 8px}.insight-carousel .insight-card{flex-basis:100%;width:100%}}
+@media (prefers-reduced-motion:reduce){.insight-carousel .insight-track{transition:none}}
 
 /* ---------- Why / process ---------- */
 .step-num{font:600 34px var(--serif);color:var(--gold)}
@@ -144,6 +143,11 @@ a.card:hover{border-color:var(--gold);text-decoration:none;transform:translateY(
 
 /* ---------- Services rotator ---------- */
 .svc-rotator{display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:start}
+.svc-progress{grid-column:1/-1;height:3px;border-radius:2px;background:var(--line);overflow:hidden;margin-bottom:6px}
+.svc-progress-bar{height:100%;width:0%;background:var(--gold);animation:svc-fill 6s linear forwards}
+.svc-progress-bar.paused{animation-play-state:paused}
+@keyframes svc-fill{from{width:0%}to{width:100%}}
+@media (prefers-reduced-motion:reduce){.svc-progress-bar{animation:none;width:100%}}
 .svc-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .svc-list li{display:flex;align-items:center;gap:14px;padding:16px 20px;cursor:pointer;border-bottom:1px solid var(--line);transition:background-color .2s ease}
 .svc-list li:last-child{border-bottom:none}

@@ -28,27 +28,68 @@
   if (rot) {
     var items = Array.prototype.slice.call(rot.querySelectorAll('.svc-list li'));
     var panels = Array.prototype.slice.call(rot.querySelectorAll('.svc-panel'));
+    var bar = document.getElementById('svc-progress-bar');
     var idx = 0, timer = null, paused = false;
+    function setPaused(v) {
+      paused = v;
+      if (bar) bar.classList.toggle('paused', v);
+    }
+    function restartBar() {
+      if (!bar) return;
+      bar.style.animation = 'none';
+      void bar.offsetWidth;
+      bar.style.animation = '';
+      bar.classList.toggle('paused', paused);
+    }
     function show(i) {
       idx = i;
       items.forEach(function (el) { el.setAttribute('aria-selected', el.getAttribute('data-i') === String(i) ? 'true' : 'false'); });
       panels.forEach(function (el) { el.classList.toggle('active', el.getAttribute('data-i') === String(i)); });
+      restartBar();
     }
     function next() { show((idx + 1) % items.length); }
     function start() { stop(); timer = setInterval(function () { if (!paused) next(); }, 6000); }
     function stop() { if (timer) { clearInterval(timer); timer = null; } }
     items.forEach(function (el) {
-      el.addEventListener('mouseenter', function () { paused = true; show(parseInt(el.getAttribute('data-i'), 10)); });
-      el.addEventListener('click', function () { paused = true; show(parseInt(el.getAttribute('data-i'), 10)); });
-      el.addEventListener('focus', function () { paused = true; show(parseInt(el.getAttribute('data-i'), 10)); });
+      el.addEventListener('mouseenter', function () { setPaused(true); show(parseInt(el.getAttribute('data-i'), 10)); });
+      el.addEventListener('click', function () { setPaused(true); show(parseInt(el.getAttribute('data-i'), 10)); });
+      el.addEventListener('focus', function () { setPaused(true); show(parseInt(el.getAttribute('data-i'), 10)); });
       el.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.location.href = el.getAttribute('data-href'); }
       });
     });
-    rot.addEventListener('mouseleave', function () { paused = false; });
-    document.addEventListener('click', function (e) { if (!rot.contains(e.target)) paused = false; });
-    window.addEventListener('scroll', function () { paused = false; }, { passive: true });
+    rot.addEventListener('mouseleave', function () { setPaused(false); });
+    document.addEventListener('click', function (e) { if (!rot.contains(e.target)) setPaused(false); });
+    window.addEventListener('scroll', function () { setPaused(false); }, { passive: true });
     start();
+  }
+
+  // Insights carousel: shows a window of full cards, steps forward, no duplicated content
+  var iCarousel = document.getElementById('insight-carousel');
+  var iTrack = document.getElementById('insight-track');
+  if (iCarousel && iTrack) {
+    var iCards = Array.prototype.slice.call(iTrack.children);
+    var iIdx = 0, iPaused = false;
+    function iCardStep() {
+      if (!iCards.length) return 0;
+      var w = iCards[0].getBoundingClientRect().width;
+      var gap = parseFloat(getComputedStyle(iTrack).columnGap || getComputedStyle(iTrack).gap || '0') || 0;
+      return w + gap;
+    }
+    function iVisibleCount() {
+      var step = iCardStep();
+      return step ? Math.max(1, Math.round(iCarousel.clientWidth / step)) : 1;
+    }
+    function iMaxIndex() { return Math.max(0, iCards.length - iVisibleCount()); }
+    function iGo(i) {
+      iIdx = Math.max(0, Math.min(iMaxIndex(), i));
+      iTrack.style.transform = 'translateX(-' + (iIdx * iCardStep()) + 'px)';
+    }
+    function iNext() { iGo(iIdx >= iMaxIndex() ? 0 : iIdx + 1); }
+    setInterval(function () { if (!iPaused) iNext(); }, 4500);
+    iCarousel.addEventListener('mouseenter', function () { iPaused = true; });
+    iCarousel.addEventListener('mouseleave', function () { iPaused = false; });
+    window.addEventListener('resize', function () { iGo(iIdx); });
   }
 
   // How we work: auto-cycle the active step 01 -> 04
