@@ -123,6 +123,15 @@ a.card:hover{border-color:var(--gold);text-decoration:none;transform:translateY(
 .insight-box h3{font-size:17px;line-height:1.32;margin:0;color:var(--navy);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .insight-grid{row-gap:28px}
 
+/* ---------- Insight marquee (home page, auto-rotating) ---------- */
+.insight-marquee{overflow:hidden;padding:4px 0 8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.insight-track{display:flex;gap:28px;width:max-content;animation:insight-scroll 60s linear infinite}
+.insight-track:hover{animation-play-state:paused}
+.insight-track .insight-card{flex:0 0 340px;width:340px}
+@keyframes insight-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.insight-track{animation:none}}
+@media (max-width:860px){.insight-track{gap:20px;animation-duration:42s}.insight-track .insight-card{flex-basis:260px;width:260px}}
+
 /* ---------- Why / process ---------- */
 .step-num{font:600 34px var(--serif);color:var(--gold)}
 .process h3{font-size:18px;margin:8px 0}
