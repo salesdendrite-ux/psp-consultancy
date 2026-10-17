@@ -102,7 +102,19 @@
     setInterval(iTick, 4500);
     iCarousel.addEventListener('mouseenter', function () { iPaused = true; });
     iCarousel.addEventListener('mouseleave', function () { iPaused = false; });
-    window.addEventListener('resize', iReset);
+    window.addEventListener('resize', function () { if (!iCarousel.classList.contains('manual')) iReset(); });
+
+    // Phone-only: on first touch, stop the JS auto-rotate for good and hand
+    // the strip to native swipe/scroll-snap (CSS, @media max-width:600px).
+    // Jump back to card 1 first so the swipe always starts from a clean spot.
+    iCarousel.addEventListener('touchstart', function () {
+      if (iCarousel.classList.contains('manual') || !window.matchMedia('(max-width:600px)').matches) return;
+      iPaused = true;
+      iTrack.style.transition = 'none';
+      iTrack.style.transform = 'none';
+      iCarousel.classList.add('manual');
+      iCarousel.scrollLeft = 0;
+    }, { passive: true });
   }
 
   // How we work: auto-cycle the active step 01 -> 04. Below the cards, a
