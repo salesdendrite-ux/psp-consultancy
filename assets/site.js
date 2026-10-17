@@ -64,15 +64,19 @@
     start();
   }
 
-  // Insights carousel: shows a window of full cards, steps forward, no duplicated content
+  // Insights carousel: always-rotating window of full cards. The DOM holds the real
+  // cards once plus one decorative (aria-hidden) copy, just enough to let the strip
+  // step forward forever and snap back invisibly once it lines up with the real set
+  // again - never a "wall" of duplicated, readable content.
   var iCarousel = document.getElementById('insight-carousel');
   var iTrack = document.getElementById('insight-track');
   if (iCarousel && iTrack) {
-    var iCards = Array.prototype.slice.call(iTrack.children);
+    var iCount = parseInt(iCarousel.getAttribute('data-count'), 10) || 0;
     var iIdx = 0, iPaused = false;
     function iCardStep() {
-      if (!iCards.length) return 0;
-      var w = iCards[0].getBoundingClientRect().width;
+      var first = iTrack.children[0];
+      if (!first) return 0;
+      var w = first.getBoundingClientRect().width;
       var gap = parseFloat(getComputedStyle(iTrack).columnGap || getComputedStyle(iTrack).gap || '0') || 0;
       return w + gap;
     }
@@ -80,16 +84,23 @@
       var step = iCardStep();
       return step ? Math.max(1, Math.round(iCarousel.clientWidth / step)) : 1;
     }
-    function iMaxIndex() { return Math.max(0, iCards.length - iVisibleCount()); }
-    function iGo(i) {
-      iIdx = Math.max(0, Math.min(iMaxIndex(), i));
+    function iReset() {
+      iTrack.style.transition = 'none';
+      iIdx = 0;
+      iTrack.style.transform = 'translateX(0px)';
+      void iTrack.offsetWidth;
+      iTrack.style.transition = '';
+    }
+    function iTick() {
+      if (iPaused || iCount < 2 || iCount < iVisibleCount()) return;
+      if (iIdx >= iCount) iReset();
+      iIdx += 1;
       iTrack.style.transform = 'translateX(-' + (iIdx * iCardStep()) + 'px)';
     }
-    function iNext() { iGo(iIdx >= iMaxIndex() ? 0 : iIdx + 1); }
-    setInterval(function () { if (!iPaused) iNext(); }, 4500);
+    setInterval(iTick, 4500);
     iCarousel.addEventListener('mouseenter', function () { iPaused = true; });
     iCarousel.addEventListener('mouseleave', function () { iPaused = false; });
-    window.addEventListener('resize', function () { iGo(iIdx); });
+    window.addEventListener('resize', iReset);
   }
 
   // How we work: auto-cycle the active step 01 -> 04
